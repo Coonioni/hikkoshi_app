@@ -51,3 +51,7 @@ group :test do
 end
 
 gem 'devise'
+
+gem  'rubocop'
+gem  'rubocop-performance'
+gem  'rubocop-rails'
