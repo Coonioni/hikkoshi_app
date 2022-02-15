@@ -1,0 +1,13 @@
+
+
+<%= form_with model: @post do |form| %>
+
+  <%= form.label :address %>
+  <%= form.text_field :address %>
+
+  <%= form.label :post_content%>
+  <%= form.text_area :post_content %>
+
+  <%= form.submit %>
+
+<% end %>

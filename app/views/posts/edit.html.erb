@@ -1,0 +1,19 @@
+<h1>投稿を編集</h1>
+
+<%= form_with(model: @post, local: true) do |form| %>
+  <div>
+    <%= form.label :address, "アドレス" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :post_content, "内容" %>
+    <%= form.text_area :post_content %>   
+  </div>
+
+  <div>
+    <%= form.submit "投稿を更新", data: { confirm: '上記の内容で投稿を更新します。よろしいですか？' }  %>
+  </div>
+
+  <div>  <%= link_to "投稿を削除", post_path(@post.id), method: :delete, data: { confirm: '投稿を削除します。よろしいですか？' } %></div>
+<% end %>
