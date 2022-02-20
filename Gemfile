@@ -50,6 +50,10 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  gem 'mysql2', '>= 0.4.4'
+end
+
 gem 'devise'
 
 gem  'rubocop'
