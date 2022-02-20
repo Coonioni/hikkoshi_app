@@ -4,14 +4,10 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-
 default: &default
   adapter: sqlite3
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREDS") { 5 } %>
-  username: root
-  password: password
-  host: db
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -25,10 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: password
-  host: db
-  database: hikkoshi_app_production
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: db/production.sqlite3
