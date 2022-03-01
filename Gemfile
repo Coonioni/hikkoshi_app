@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5'
+gem 'sass-rails', '~> 5'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -32,6 +32,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem  'rubocop'
+  gem  'rubocop-performance'
+  gem  'rubocop-rails'
 end
 
 group :development do
@@ -56,7 +59,3 @@ group :production do
 end
 
 gem 'devise'
-
-gem  'rubocop'
-gem  'rubocop-performance'
-gem  'rubocop-rails'

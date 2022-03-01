@@ -1,0 +1,17 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - "vendor"
+    - "bin"
+    - "db/schema.rb"
+    - "node_modules"
+    - "tmp"
+    - "lib"
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
