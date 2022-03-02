@@ -1,0 +1,6 @@
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
