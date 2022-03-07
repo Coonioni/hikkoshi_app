@@ -1,7 +1,7 @@
 <%= render 'shared/flash_messages' %>
 
 <% if user_signed_in? %>
-  <%= link_to "投稿", "/posts/new" %>
+  <div class="text-red"><%= link_to "投稿", "/posts/new" %></div>
   <%= link_to "投稿を編集", edit_post_path(post) %>
   <%# posts_path(@post), method: :get %>
 <% end %>
