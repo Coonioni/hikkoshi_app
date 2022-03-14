@@ -1,6 +1,4 @@
 
-<%= @post.post_content %>
-
 <%= form_with model: [@post, @comment], local: true do |f| %>
   <%= f.text_field :content %>
   <%= f.hidden_field :user_id %>
@@ -8,10 +6,3 @@
   <%= f.submit 'コメントする' %>
   <% end %>
 <%= link_to "ホームへ戻る", posts_path %>
-
-
-<% @post.comments.each do |comment| %>
-  <p><%= comment.user.email %></p>
-  <p><%= comment.content %></p>
-  <p><%= link_to '削除', [@post, comment], method: :delete %> </p>
-<% end %>
