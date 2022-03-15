@@ -37,6 +37,10 @@ class PostsController < ApplicationController
     redirect_to controller: "homes", action: "index"
   end
 
+  def liked?(user)
+    likes.where(user_id: user.id).exist?
+  end
+
   private
     def post_params
       params.require(:post).permit(:post_content, :address)
