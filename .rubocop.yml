@@ -1,8 +1,5 @@
 inherit_from: .rubocop_todo.yml
 
-Rails:
-  Enabled: true
-
 require:
   - rubocop-rails
 
@@ -17,3 +14,23 @@ AllCops:
     - "lib"
     - "config/**/*"
     - "Gemfile"
+
+Rails:
+  Enabled: true
+
+Rails:/FilePath:
+  Exclude:
+    - 'lib/tasks/dev.rake'
+    - 'spec/rails_helper.rb'
+
+Style/AndOr:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Layout/CommentIndentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
