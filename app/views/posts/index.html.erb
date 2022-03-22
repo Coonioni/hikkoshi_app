@@ -1,7 +1,8 @@
 <%= render 'shared/flash_messages' %>
 
 <h1>投稿一覧</h1>
-<div class="text-red"><% @posts.each do |post| %>
+<div class="text-red">
+<% @posts.each do |post| %>
   <%= post.id %>
   <%= post.post_content %>
   <%= post.address %>

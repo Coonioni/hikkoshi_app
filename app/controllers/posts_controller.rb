@@ -27,14 +27,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    Post.create( post_params.merge!(user_id: current_user.id))
     redirect_to controller: "homes", action: "index"
   end
 
   def destroy
     post = Post.find(params[:id])
     flash.now[:success] = "削除が完了しました。"
-    redirect_to controller: "homes", action: "index"
+    redirect_to controller: "posts", action: "index"
   end
 
   def liked?(user)

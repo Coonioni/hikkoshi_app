@@ -1,0 +1,14 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div>
+
+<% case notification.action %>
+  <% when 'comment' then %>
+    <div>
+      <%= link_to "#{visitor.id}が",  "/posts/visited.id" %>
+      <%= "あなたの投稿にコメントしました。" %>
+    </div>
+<% end %>
+
+</div>

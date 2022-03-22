@@ -1,12 +1,13 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
 
-
   def create
     @post = Post.find(params[:post_id])
     @post_like = Like.new(user_id: current_user.id, post_id: params[:post_id])
     @post_like.save
     redirect_to post_path(params[:post_id])
+
+    @post.create_notification_like(current_user)
   end
 
   def destroy

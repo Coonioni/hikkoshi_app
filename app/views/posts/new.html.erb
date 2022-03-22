@@ -1,6 +1,6 @@
 
 
-<%= form_with model: @post do |form| %>
+<%= form_with model: @post, local: true do |form| %>
 
   <%= form.label :address %>
   <%= form.text_field :address %>

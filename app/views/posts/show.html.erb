@@ -3,11 +3,11 @@
 
   <% if @post.liked?(current_user) %>
     <%= link_to post_like_path(@post), method: :delete do %>
-      <span style="color:red;">はーと</span>
+      <span style="color:red;">いいねをまだしていない</span>
     <% end %>
   <% else %>
     <%= link_to post_likes_path(@post), method: :post do %>
-      <span>ハート</span>
+      <span>いいねして居ます</span>
     <% end %>
   <% end %>
 
