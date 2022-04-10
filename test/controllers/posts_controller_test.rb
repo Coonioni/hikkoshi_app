@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
+
+  # test "should get index" do
+  #   get :show
+  #   assert_response :failure, "test failure"
   # end
+
+
 end
