@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).all
+    @tags = @post.tags
   end
 
   def edit 
@@ -27,14 +28,39 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create( post_params.merge!(user_id: current_user.id))
+    # puts "createメソッド開始"
+    # @tag = Tag.find(1)
+    # puts "tag_id" + params[:tag_id]
+    @post = Post.new(post_params.merge!(user_id: current_user.id))
+    @post.save
+
+    @post_tag = PostTag.new
+    post_param = params[:post]
+    @post_tag.tag_id = post_param['tag_ids']
+    @post_tag.post_id = @post.id
+    
+    if @post_tag.save
+      puts "登録に成功しました"
+    else
+      puts "登録に失敗しました。"
+      puts @post.id
+      puts @post_tag.tag_id
+      puts "デバッグ終了"
+    end
+
     redirect_to controller: "posts", action: "index"
+    puts "createメソッド終了"
   end
 
   def destroy
     post = Post.find(params[:id])
-    flash.now[:success] = "削除が完了しました。"
-    redirect_to controller: "posts", action: "index"
+    if current_user.id == post.user.id
+      post.destroy
+      flash.now[:success] = "削除が完了しました。"
+      redirect_to controller: "posts", action: "index"
+    else
+      render "posts/show"
+    end
   end
 
   def liked?(user)

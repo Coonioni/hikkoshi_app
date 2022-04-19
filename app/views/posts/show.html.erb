@@ -1,6 +1,10 @@
 
 <%= @post.post_content %>
 
+<% @tags.each do |tag| %>
+  <%= tag.tag_name%>
+<% end %>
+
   <% if @post.liked?(current_user) %>
     <%= link_to post_like_path(@post), method: :delete do %>
       <span style="color:red;">いいねをまだしていない</span>

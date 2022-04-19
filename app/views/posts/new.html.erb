@@ -8,8 +8,8 @@
   <%= form.label :post_content %>
   <%= form.text_area :post_content %>
 
-<%= form.collection_select :tag_id, Tag.order(:tag_name), :id, :tag_name %>
-
+  <%= form.collection_select :tag_ids, Tag.all, :id, :tag_name %>
+  
   <%= form.submit %>
 
 <% end %>
