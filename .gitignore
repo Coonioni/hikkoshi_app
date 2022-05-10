@@ -35,3 +35,6 @@ yarn-debug.log*
 .yarn-integrity
 
 /vendor/bundle
+
+# 追加
+.env
